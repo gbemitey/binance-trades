@@ -50,7 +50,7 @@ db.mongoose
                 Pair.find()
                     .then(result => {
                         const dbDatas = result;
-                        //console.log(dbDatas);
+                        console.log(dbDatas);
                         for (const dbData in dbDatas) {
                             jsonData.map(function(person) {
                                 var p = dbDatas[dbData].pairs;
@@ -71,8 +71,9 @@ db.mongoose
                                                     // console.log('Error: ', err.message);
                                                 });
 
-                                                var url2 = 'https://www.tonoit.com/serviceprovider/deleteDiscordSignal/&channel=' + req.body.channelID + '&message=' + req.body.messageID;
+                                                var url2 = 'https://www.tonoit.com/serviceprovider/deleteDiscordSignal/&channel=' + dbDatas[dbData].channelID + '&message=' + dbDatas[dbData].messageID;
                                                 https.get(url2, res => {}).on('error', err => {});
+                                                //Console
 
                                             }
                                         })
@@ -93,7 +94,7 @@ db.mongoose
                                                 }).on('error', err => {
                                                     // console.log('Error: ', err.message);
                                                 });
-                                                var url2 = 'https://www.tonoit.com/serviceprovider/deleteDiscordSignal/&channel=' + req.body.channelID + '&message=' + req.body.messageID;
+                                                var url2 = 'https://www.tonoit.com/serviceprovider/deleteDiscordSignal/&channel=' + dbDatas[dbData].channelID + '&message=' + dbDatas[dbData].messageID;
                                                 https.get(url2, res => {}).on('error', err => {});
 
                                             }
