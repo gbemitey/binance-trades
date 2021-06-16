@@ -50,7 +50,7 @@ db.mongoose
                 Pair.find()
                     .then(result => {
                         const dbDatas = result;
-                        console.log(dbDatas);
+                        //console.log(dbDatas);
                         for (const dbData in dbDatas) {
                             jsonData.map(function(person) {
                                 var p = dbDatas[dbData].pairs;
